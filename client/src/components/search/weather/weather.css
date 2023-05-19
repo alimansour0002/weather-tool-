@@ -1,0 +1,23 @@
+.top, .bottom{
+    align-items: center;
+}
+.temp{
+    font-size: 70px;
+    width: auto;
+    letter-spacing: -5px;
+    margin: 10px 0;
+    font-weight: 600;
+}
+.weather{
+    width: 300px;
+    border-radius: 5px;
+    box-shadow: 20px -2px 20px 2px rgb(0 0 0 / 30%);
+    color: white;
+    background-color: #333;
+    margin: 20px auto 0 auto;
+
+}
+.top,.bottom{
+    display: flex;
+    justify-content:space-between ;
+}

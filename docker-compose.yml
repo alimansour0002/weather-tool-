@@ -1,0 +1,28 @@
+version: "3"
+services:
+  app:
+    build:
+      context: ./server
+      dockerfile: dockerfile.server
+    ports:
+      - "3003:3003"
+    depends_on: 
+      - db
+    environment:
+      - DATABASE_URL=postgresql://postgres:password@db:5432/test
+  db:
+    build:
+      context: ./db
+      dockerfile: dockerfile.database
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+  frontend:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+volumes:
+  pgdata:

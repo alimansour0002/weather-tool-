@@ -1,0 +1,17 @@
+# Choose the node base image
+FROM node:14
+
+# Create app directory in the container
+WORKDIR /usr/src/app
+
+# Installing app dependencies
+COPY package*.json ./
+
+RUN npm install
+
+# Bundling app source inside the docker image
+COPY . .
+
+EXPOSE 3003
+
+CMD [ "npm", "start" ]

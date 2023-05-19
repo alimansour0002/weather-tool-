@@ -1,0 +1,13 @@
+# Choosing the postgres base image
+FROM postgres:13
+
+# Setting environment 
+ENV POSTGRES_USER=postgres
+ENV POSTGRES_PASSWORD=postgres
+ENV POSTGRES_DB=test
+
+# Setting the working directory in the container
+WORKDIR /docker-entrypoint-initdb.d
+
+# copying the SQL scripts which will create the table to the working directory
+COPY ./sql-scripts/ .
